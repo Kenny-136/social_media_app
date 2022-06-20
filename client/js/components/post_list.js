@@ -12,7 +12,7 @@ function renderPostsList() {
         </header>
         
         <p class="p-tweets">${post.post}</p>
-        <img class='attachments-for-post' src="${post.attachment}" alt="attachment" width="400px">
+        <img class='attachments-for-post' src="${post.attachment}" width="400px">
         <p class="p-tweets">Posted on ${post.time_stamp}</p>
         
         <form onSubmit="likePost(event)">
@@ -21,8 +21,7 @@ function renderPostsList() {
           <button class="like-button"><i class="fa fa-thumbs-up"></i></button>
           <span>${numLikesForPost(post.id)}</span>
           </div>
-        </form>    
-        <span class="" onClick="renderComments(event)">Comment</span>
+        </form>
       </section> 
     </div>   
   `
@@ -38,8 +37,8 @@ function renderPostsList() {
           <h2>${post.name}</h2>
           <span class="avatar-mini" onclick="renderProfileDetailsChange()">Update your Avatar!</span>
         </header>
-        <p class="p-tweets">${post.post}</p>
-        <img src="${post.attachment}" alt="attachment" width="400px"/>
+        <p class="p-tweets">${post.post}</p
+        <img src="${post.attachment}" width="400px"/>
         <p class="p-tweets">Posted on ${post.time_stamp}</p>
         <form onSubmit="likePost(event)">
           <input name='post_id' value='${post.id}' type='hidden'>
@@ -48,7 +47,6 @@ function renderPostsList() {
           <span>${numLikesForPost(post.id)}</span>
           </div>
         </form>
-        <span class="" onClick="renderComments(event)">Comment</span>
       </section>
       </div>
       `
