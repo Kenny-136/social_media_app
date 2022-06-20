@@ -1,15 +1,3 @@
-//This function should not be deleted.
-
-// function renderPostsList() {
-//   document.querySelector("#page").innerHTML = `
-
-//       <h2>Welcome to the Social Media App</h2>
-//       <section>
-//         ${renderHomePage()}
-//       </section>
-
-//   `;
-// }
 
 function renderPostsList() {
   if (state.loggedInUserName.avatar !== '') {
@@ -59,7 +47,6 @@ function renderPostsList() {
           <button  class="like-button"><i class="fa fa-thumbs-up" ></i></button>
           <span>${numLikesForPost(post.id)}</span>
           </div>
-
         </form>
         <span class="" onClick="renderComments(event)">Comment</span>
       </section>
@@ -70,19 +57,15 @@ function renderPostsList() {
   }
 }
 
-function renderHomePage() {
-  console.log('hey')
-  return state.posts.map(post => `
-    <section class='post' data-id='${post.id}'>
-      <header>
-        <h2>${post.id}</h2>
-      </header>
-      <p>${post.post}</p>
-      <p>${post.attachment}</p>
-      <span class="" onClick="likePost(event)">Like</span>
-      <span class="" onClick="commentPost(event)">Comment</span>
-    </section>
-  `
-    )
-    .join('');
+function numLikesForPost(postId) {
+  return state.likesArray.filter((like) => Number(like) === postId).length;
+}
+
+function crazyfunction() {
+  fetch('/api/posts')
+    .then((res) => res.json())
+    .then((posts) => {
+      state.posts = posts;
+    });
+  renderUserHomePage();
 }
